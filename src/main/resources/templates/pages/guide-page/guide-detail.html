@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html
+        xmlns:th="http://thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Guide Detail Page</title>
+</head>
+<body>
+
+<main layout:fragment = "MainContent">
+    <!-- Team Start -->
+    <div class="container-fluid py-5">
+        <div class="container pt-5 pb-3">
+            <div class="text-center">
+                <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Guide</h6>
+                <h1 th:text = "'About ' + ${guideDetail.name}"></h1>
+            </div>
+            <div class="row">
+                <div class="col-12 pb-4 pt-4">
+                    <div class="team-item bg-white mb-4 d-flex flex-column justify-content-center align-items-center" style="padding-top: 50px">
+                        <div class="position-relative overflow-hidden w-50 text-center">
+                            <img class="img-fluid w-75" th:src="${guideDetail.photoUrl}" alt="">
+                        </div>
+                        <div class="text-center py-4">
+                            <h5 th:text ="${guideDetail.name}" class="text-truncate"></h5>
+                            <p th:text ="${guideDetail.email}"  class="m-0"></p>
+                            <p th:text ="${guideDetail.phoneNumber}"  class="m-0"></p>
+                            <h3 style="padding-top: 40px; padding-bottom: 10px">Biography of Guide : </h3>
+                            <p th:text ="${guideDetail.biography}"  class="m-0" style="padding: 0 50px"></p>
+
+                            <h3 style="padding-top: 40px; padding-bottom: 10px">Socials : </h3>
+                            <a class="btn btn-outline-primary btn-square" th:href="${guideDetail.twitter}"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-primary btn-square" th:href="${guideDetail.facebook}"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-primary btn-square" th:href="${guideDetail.instagram}"><i class="fab fa-instagram"></i></a>
+                            <a class="btn btn-outline-primary btn-square" th:href="${guideDetail.linkedin}"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Team End -->
+</main>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html
+        xmlns:th="http://thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Destination Detail</title>
+</head>
+<body>
+
+<main layout:fragment = "MainContent">
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 bg-white p-4" >
+                <div class="project-info-box mt-0">
+                    <h5>Overview</h5>
+                    <p th:text ="${destination.description}" class="mb-0">Vivamus pellentesque, felis in aliquam ullamcorper, lorem tortor porttitor erat, hendrerit porta nunc tellus eu lectus. Ut vel imperdiet est. Pellentesque condimentum, dui et blandit laoreet, quam nisi tincidunt tortor.</p>
+                </div>
+                <div class="project-info-box pt-4">
+                    <p><b th:text ="'Country : ' + ${destination.country}"></b></p>
+                    <p><b th:text ="'City : ' + ${destination.city}"></b></p>
+                </div><!-- / project-info-box -->
+            </div>
+
+            <div class="col-md-7">
+                <img th:src="${destination.photoUrl}" style="width: 400px;height: 300px" alt="project-image" class="rounded">
+            </div><!-- / column -->
+        </div>
+    </div>
+
+</main>
+
+</body>
+</html>

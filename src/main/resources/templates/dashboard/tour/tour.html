@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{dashboard/layout}">
+
+
+<head>
+    <title>Tour Page</title>
+</head>
+<body id="page-top">
+
+<div layout:fragment="container">
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Tables</h1>
+    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
+        For more information about DataTables, please visit the <a target="_blank"
+                                                                   href="https://datatables.net">official DataTables documentation</a>.</p>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">
+                <a href="/admin/tour/create" class="btn btn-primary btn-sm">Create Tour</a>
+            </h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Depart Date</th>
+                        <th>Return Date</th>
+                        <th>Duration</th>
+                        <th>Max Participants</th>
+<!--                        <th>Guide Name</th>-->
+<!--                        <th>Actions</th>-->
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr th:each="tour :${tours}">
+                        <td th:text="${tour.name}"></td>
+                        <td th:text="${tour.description}"></td>
+                        <td th:text="${tour.price}"></td>
+<!--                        <td th:text="${tour.departDate}"></td>-->
+<!--                        <td th:text="${tour.returnDate}"></td>-->
+                        <td th:text="${tour.duration}"></td>
+                        <td th:text="${tour.maxParticipants}"></td>
+
+<!--                        <td>-->
+<!--                            <a th:href="'/admin/article/update/' + ${article.id}"   class="btn btn-sm btn-outline-warning">Update</a>-->
+<!--                            <button th:onclick="'remove('+${article.id}+')'" class="btn btn-sm btn-outline-danger">Delete</button>-->
+<!--                        </td>-->
+                    </tr>
+                    </tbody>
+
+                    <tfoot>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Depart Date</th>
+                        <th>Return Date</th>
+                        <th>Duration</th>
+                        <th>Max Participants</th>
+<!--                        <th>Guide Name</th>-->
+<!--                        <th>Actions</th>-->
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<th:block layout:fragment="myScript">
+    <script>
+        function remove(id){
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: "btn btn-success",
+                    cancelButton: "btn btn-danger"
+                },
+                buttonsStyling: false
+            });
+            swalWithBootstrapButtons.fire({
+                title: "Are you sure?",
+                text: "You won't be able to revert this!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Yes, delete it!",
+                cancelButtonText: "No, cancel!",
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    swalWithBootstrapButtons.fire({
+                        title: "Deleted!",
+                        text: "Your file has been deleted.",
+                        icon: "success"
+                    });
+                    window.location="/admin/article/remove/"+id;
+                } else if (
+                    /* Read more about handling dismissals below */
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire({
+                        title: "Cancelled",
+                        text: "Your imaginary file is safe :)",
+                        icon: "error"
+                    });
+                }
+            });
+        }
+    </script>
+</th:block>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{dashboard/layout}">
+
+
+<head>
+    <title>Testimonial Create</title>
+</head>
+<body id="page-top">
+
+<div layout:fragment="container">
+    <div>
+        <form action="/admin/testimonial/create" method="post">
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Name" name="name" />
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Surname" name="surname" />
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Profession" name="profession" />
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Photo" name="photo" />
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Comment" name="comment" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

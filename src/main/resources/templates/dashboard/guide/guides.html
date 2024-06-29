@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{dashboard/layout}">
+
+
+<head>
+    <title>Guides Page</title>
+</head>
+<body id="page-top">
+
+<div layout:fragment="container">
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <a href="/admin/guide/create" class="btn btn-primary btn-sm">Add Guide To The List</a>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Phone Number</th>
+                        <th scope="col">Photo</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="guide: ${guides}">
+                        <th th:text="${guide.id}"></th>
+                        <td th:text="${guide.name}"></td>
+                        <td th:text="${guide.email}"></td>
+                        <td th:text="${guide.phoneNumber}"></td>
+                        <td>
+                            <img th:src="${guide.photoUrl}" style="width: 150px; height: 150px" alt="Guide Image">
+                        </td>
+                        <td>
+                            <a th:href="'/admin/guide/update/' + ${guide.id}" class="btn btn-info btn-sm">Update</a>
+                            <span>
+                          <a th:if="${guide.getIsDeleted() == false}" th:href="'/admin/guide/remove/' + ${guide.id}"
+                             class="btn btn-danger btn-sm">Disable it</a>
+                          <a th:if="${guide.getIsDeleted() == true}" th:href="'/admin/guide/remove/' + ${guide.id}"
+                             class="btn btn-success btn-sm">Able it</a>
+                            </span>
+                        </td>
+
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+</body>
+</html>

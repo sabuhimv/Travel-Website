@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{dashboard/layout}">
+
+
+<head>
+    <title>Testimonials Page</title>
+</head>
+<body id="page-top">
+
+<div layout:fragment="container">
+
+    <a href="/admin/testimonial/create" class="btn btn-primary btn-sm">Add Testimonial</a>
+
+    <table class="table table-striped mt-3">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Surname</th>
+            <th scope="col">Profession</th>
+            <th scope="col">Photo</th>
+            <th scope="col">Comment</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="testimonial: ${testimonials}">
+            <th th:text="${testimonial.id}"></th>
+            <td th:text="${testimonial.name}"></td>
+            <td th:text="${testimonial.surname}"></td>
+            <td th:text="${testimonial.profession}"></td>
+            <td>
+                <img style="width: 100px; height: 100px" th:src="${testimonial.photo}" alt="">
+            </td>
+            <td th:text="${testimonial.comment}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

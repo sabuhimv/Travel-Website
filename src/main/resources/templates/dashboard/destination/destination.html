@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{dashboard/layout}">
+
+
+<head>
+    <title>Destination Page</title>
+</head>
+<body id="page-top">
+
+<div layout:fragment="container">
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <a href="/admin/destination/create" class="btn btn-primary btn-sm" >Create Destination</a>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Country</th>
+                        <th scope="col">City</th>
+                        <th scope="col">Photo</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="destination: ${destinations}">
+                        <th th:text="${destination.id}"></th>
+                        <td th:text="${destination.name}"></td>
+                        <td th:text="${destination.description}"></td>
+                        <td th:text="${destination.country}"></td>
+                        <td th:text="${destination.city}"></td>
+                        <td>
+                            <img style="width: 100px" th:src="${destination.photoUrl}" alt="">
+                        </td>
+                        <!--            <td>-->
+                        <!--                <a th:href="'/admin/destination/update/' + ${destination.id}" class="btn btn-outline-info btn-sm">Update</a>-->
+                        <!--                <a th:href="'/admin/destination/remove/'+ ${destination.id}"  class="btn btn-outline-danger btn-sm">Delete</a>-->
+                        <!--            </td>-->
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</div>
+
+</body>
+</html>

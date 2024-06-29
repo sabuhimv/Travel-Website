@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{dashboard/layout}">
+
+
+<head>
+    <title>Destination Create</title>
+</head>
+<body id="page-top">
+
+<div layout:fragment="container">
+    <div>
+        <form action="/admin/destination/create" method="post">
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Destination name" name="name" />
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Destination description" name="description" />
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Destination country" name="country" />
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Destination city" name="city" />
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Destination Photo" name="photoUrl" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

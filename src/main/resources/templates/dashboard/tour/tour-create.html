@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{dashboard/layout}">
+
+
+<head>
+    <title>Article Create</title>
+</head>
+<body id="page-top">
+
+<div layout:fragment="container" class="container-fluid">
+    <div>
+        <form action="/admin/tour/create" method="post">
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Tour name" name="name"/>
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" type="text" placeholder="Description" name="description"></textarea>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Price" name="price"/>
+            </div>
+
+<!--            <div class="form-group">-->
+<!--                <input class="form-control" type="date" placeholder="Depart Date" name="departDate"/>-->
+<!--            </div>-->
+<!--            <div class="form-group">-->
+<!--                <input class="form-control" type="date" placeholder="Return Date" name="returnDate"/>-->
+<!--            </div>-->
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Duration" name="duration"/>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Participants" name="maxParticipants"/>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Image" name="tourImage"/>
+            </div>
+
+
+<!--            <div class="form-group">-->
+<!--                <div style="margin-bottom: 10px">Select Guide</div>-->
+<!--                <select style="cursor: pointer" name="" id="" class="form-control">-->
+<!--                    <option th:each="guide:${guides}" th:text="${guide.name}" th:value="${guide.id}"></option>-->
+<!--                </select>-->
+<!--            </div>-->
+
+
+<!--            <div class="form-group">-->
+<!--                <div style="margin-bottom: 10px">Select Destination(s)</div>-->
+<!--                <label style="cursor: pointer" th:each="destination:${destinations}" name="destinationIds"-->
+<!--                       class="form-control">-->
+<!--                    <input type="checkbox" th:value="${destination.id}" th:text="${destination.name} + ' in ' + ${destination.country}">-->
+<!--                </label>-->
+<!--            </div>-->
+
+            <input type="submit" value="Create" class="btn btn-success"/>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
